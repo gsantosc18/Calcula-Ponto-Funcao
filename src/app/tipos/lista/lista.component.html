@@ -1,0 +1,51 @@
+<div class="card mt-3">
+    <div class="card-header">
+        <div class="float-left">
+            <h4>Tipos</h4>
+        </div>
+        <div class="float-right">
+            <a class="btn btn-primary" [routerLink]="['/tipos','create']">Novo Tipo</a>
+            <!-- <button type="button" class="btn btn-secondary" (click)="onRefresh()">Atualizar</button> -->
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Tipo</th>
+                    <th>Descrição</th>
+                    <th>...</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tipo of tipos">
+                    <td>{{ tipo.id }}</td>
+                    <td>{{ tipo.nome }}</td>
+                    <td>
+                        {{ tipo.descricao }}
+                    </td>
+                    <td>
+                        <span class="float-right">
+                            <!-- <button class="btn btn-outline-warning mb-1 btn-sm" (click)="onEdit(curso.id)">
+                                Atualizar
+                            </button>
+                            &nbsp; -->
+                            <button class="btn btn-outline-danger mb-1 btn-sm" (click)="delete(tipo)">
+                                Remover
+                            </button>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- <ng-template #loading>
+            <div *ngIf="error$ | async; else msg">
+                <span>Erro ao carregar as informações da página.</span>
+            </div>
+            <ng-template #msg>
+                <span>Carregando...</span>
+            </ng-template>
+        </ng-template> -->
+    </div>
+</div>

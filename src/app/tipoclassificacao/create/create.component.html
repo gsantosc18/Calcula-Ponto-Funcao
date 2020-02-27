@@ -1,0 +1,33 @@
+<div class="card mt-3">
+    <div class="card-header">
+        <h4>Criar novo tipo</h4>
+    </div>
+    <div class="card-body">
+        <form>
+            <div class="form-group">
+                <label for="tipo">Tipo</label>
+                <select id="tipo" name="tipo" class="form-control"
+                    [(ngModel)]="tipoclassificacao.tipo">
+                    <option *ngFor="let item of tipos" [value]="item.id">{{ item.nome }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="classificacao">Classificacao</label>
+                <select id="classificacao" name="classificacao" class="form-control"
+                    [(ngModel)]="tipoclassificacao.classificacao">
+                    <option *ngFor="let item of classificacoes" [value]="item.id">
+                        {{ item.nome }}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="valor">PFs</label>
+                <input type="number" class="form-control" id="valor" name="valor"
+                    [(ngModel)]="tipoclassificacao.valor">
+            </div>
+            <div class="form-group">
+                <button (click)="save()" class="btn btn-success">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="card mt-3">
+    <div class="card-header">
+        <div class="float-left">
+            <h4>Projetos</h4>
+        </div>
+        <div class="float-right">
+            <a class="btn btn-primary" [routerLink]="['/projetos','create']">Novo Projeto</a>
+            <!-- <button type="button" class="btn btn-secondary" (click)="onRefresh()">Atualizar</button> -->
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Valor PF (R$)</th>
+                    <th>Status</th>
+                    <th>...</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let projeto of projetos">
+                    <td>{{ projeto.id }}</td>
+                    <td>{{ projeto.nome }}</td>
+                    <td>
+                        {{ projeto.descricao }}
+                    </td>
+                    <td>
+                        {{ projeto.valorpf }}
+                    </td>
+                    <td>
+                        <span [class]='"text-"+(projeto.status==1?"success":"danger")'>
+                            {{ projeto.status==1?"Ativo":"Inativo" }}
+                        </span>
+                    </td>
+                    <td>
+                        <span class="float-right">
+                            <a class="btn btn-outline-primary mb-1 btn-sm mr-1" [routerLink]="['/orcamentos',projeto.id]">
+                                Orçamento
+                            </a>
+                            <a class="btn btn-outline-warning mb-1 btn-sm mr-1" [routerLink]="['/projetos',projeto.id]">
+                                Atualizar
+                            </a>
+                            <button class="btn btn-outline-danger mb-1 btn-sm" (click)="delete(projeto)">
+                                Remover
+                            </button>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- <ng-template #loading>
+            <div *ngIf="error$ | async; else msg">
+                <span>Erro ao carregar as informações da página.</span>
+            </div>
+            <ng-template #msg>
+                <span>Carregando...</span>
+            </ng-template>
+        </ng-template> -->
+    </div>
+</div>

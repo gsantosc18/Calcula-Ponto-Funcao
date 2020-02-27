@@ -1,0 +1,40 @@
+<div class="card mt-3">
+    <div class="card-header">
+        <h4>Criar novo orçamento | Projeto: {{ projeto?.nome }}</h4>
+    </div>
+    <div class="card-body">
+        <form>
+            <div class="form-group">
+                <label for="descricao">Descrição</label>
+                <input id="descricao" class="form-control" name="descricao" [(ngModel)]="data.descricao">
+            </div>
+            <div class="form-group">
+                <label for="tipo">Tipo</label>
+                <select id="tipo" name="tipo" class="form-control"
+                    [(ngModel)]="data.tipo"
+                    (change)="findValor()">
+                    <option value="">Selecione</option>
+                    <option *ngFor="let item of tipos" [value]="item.id">{{ item.nome }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="classificacao">Classificacao</label>
+                <select id="classificacao" name="classificacao" class="form-control"
+                    [(ngModel)]="data.classificacao"
+                    (change)="findValor()">
+                    <option value="">Selecione</option>
+                    <option *ngFor="let item of classificacoes" [value]="item.id">
+                        {{ item.nome }}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="classificacao">PFs</label>
+                <input class="form-control" [value]="data.valor" disabled>
+            </div>
+            <div class="form-group">
+                <button (click)="save()" class="btn btn-success">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>

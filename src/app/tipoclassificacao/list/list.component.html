@@ -1,0 +1,47 @@
+<div class="card mt-3">
+    <div class="card-header">
+        <div class="float-left">
+            <h4>Tipo Classificação</h4>
+        </div>
+        <div class="float-right">
+            <a class="btn btn-primary" [routerLink]="['/tipoclassificacao','create']">Novo Tipo C</a>
+            <!-- <button type="button" class="btn btn-secondary" (click)="onRefresh()">Atualizar</button> -->
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Tipo</th>
+                    <th>Classificação</th>
+                    <th>PFs</th>
+                    <th>...</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tiposc of tipocs">
+                    <td>{{ tiposc.id }}</td>
+                    <td>
+                        {{ tiposc.tipo | tipopipe:tipos }}
+                    </td>
+                    <td>{{ tiposc.classificacao | classificacaopipe:classificacoes }}</td>
+                    <td>
+                        {{ tiposc.valor }}
+                    </td>
+                    <td>
+                        <span class="float-right">
+                            <!-- <button class="btn btn-outline-warning mb-1 btn-sm" (click)="onEdit(curso.id)">
+                                Atualizar
+                            </button>
+                            &nbsp; -->
+                            <button class="btn btn-outline-danger mb-1 btn-sm" (click)="delete(tiposc)">
+                                Remover
+                            </button>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
